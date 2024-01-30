@@ -21,6 +21,8 @@ if ( file_exists( dirname(__FILE__) . '/vendor/autoload.php' ) ){
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
+use Tutor\Inc\Assets;
+
 final class TutorElite{
     
     // set plugin version
@@ -45,7 +47,11 @@ final class TutorElite{
      * create default method
      */
     public function __construct(){
-        $this-define_constant();
+
+        // define constant
+        $this->define_constant();
+
+        new Assets;
     }
 
     /**
@@ -58,6 +64,7 @@ final class TutorElite{
         define( 'TE_ASSETS', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
         define( 'TE_ASSETS_ADMIN', trailingslashit( TE_ASSETS . 'admin' ) );
     }
+
 }
 
 function tutor_elite(){
