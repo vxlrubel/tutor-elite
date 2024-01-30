@@ -1,6 +1,6 @@
 <?php
 
-namespace Tutor\Inc;
+namespace Tutor\Inc\Api;
 
 defined('ABSPATH') || exit;
 
