@@ -23,6 +23,7 @@ if ( file_exists( dirname(__FILE__) . '/vendor/autoload.php' ) ){
 
 use Tutor\Inc\Assets;
 USE Tutor\Inc\Trait\Table;
+use Tutor\Inc\Api\RegisterApi;
 
 /**
  * This is the final class it's not extendable
@@ -64,6 +65,9 @@ final class TutorElite{
         new Assets;
 
         register_activation_hook( __FILE__, [ $this, 'create_database_table' ] );
+
+        // register REST API routes
+        new RegisterApi;
     }
 
     /**
