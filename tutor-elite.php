@@ -22,6 +22,7 @@ if ( file_exists( dirname(__FILE__) . '/vendor/autoload.php' ) ){
 }
 
 use Tutor\Inc\Assets;
+use Tutor\Inc\DatabaseTable;
 
 final class TutorElite{
     
@@ -52,6 +53,8 @@ final class TutorElite{
         $this->define_constant();
 
         new Assets;
+
+        register_activation_hook( __FILE__, [ $this, 'create_database_table' ] );
     }
 
     /**
@@ -63,6 +66,15 @@ final class TutorElite{
         define( 'TE_VERSION', $this->version );
         define( 'TE_ASSETS', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
         define( 'TE_ASSETS_ADMIN', trailingslashit( TE_ASSETS . 'admin' ) );
+    }
+
+    /**
+     * create database table
+     *
+     * @return void
+     */
+    public function create_database_table(){
+        new DatabaseTable;
     }
 
 }
