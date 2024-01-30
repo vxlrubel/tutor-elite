@@ -22,7 +22,6 @@ if ( file_exists( dirname(__FILE__) . '/vendor/autoload.php' ) ){
 }
 
 use Tutor\Inc\Assets;
-use Tutor\Inc\DatabaseTable;
 USE Tutor\Inc\Trait\Table;
 
 /**
