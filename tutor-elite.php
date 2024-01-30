@@ -45,7 +45,18 @@ final class TutorElite{
      * create default method
      */
     public function __construct(){
+        $this-define_constant();
+    }
 
+    /**
+     * define constant
+     *
+     * @return void
+     */
+    public function define_constant(){
+        define( 'TE_VERSION', $this->version );
+        define( 'TE_ASSETS', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
+        define( 'TE_ASSETS_ADMIN', trailingslashit( TE_ASSETS . 'admin' ) );
     }
 }
 
