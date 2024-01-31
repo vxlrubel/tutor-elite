@@ -30,6 +30,9 @@ class RegisterApi{
         // register user progress api
         add_action( 'rest_api_init', [ $this, 'register_user_progress_api'] );
 
+        // register notification api
+        add_action( 'rest_api_init', [ $this, 'register_notification_api'] );
+
 
     }
 
@@ -81,5 +84,15 @@ class RegisterApi{
     public function register_user_progress_api(){
         $user_progress = new UserProgressControllerApi;
         $user_progress->register_routes();
+    }
+
+    /**
+     * register user progress api routes for manage user progress
+     *
+     * @return void
+     */
+    public function register_notification_api(){
+        $notification = new NotificationControllerApi;
+        $notification->register_routes();
     }
 }
