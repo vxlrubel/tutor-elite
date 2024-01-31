@@ -30,7 +30,7 @@ class UserProgressControllerApi extends WP_REST_Controller {
         // get user progress for a lesson
         register_rest_route( 
             $this->namespace,
-            '/' . $this->rest_base . '/(?P<user_id>[\d]+)' . '/(?P<lesson_id>[\d]+)' . 
+            '/' . $this->rest_base . '/(?P<user_id>[\d]+)' . '/(?P<lesson_id>[\d]+)',
             [
                 [
                     'methods'             => WP_REST_Server::READABLE,
@@ -61,20 +61,20 @@ class UserProgressControllerApi extends WP_REST_Controller {
     /**
      * get user progress
      *
-     * @param [type] $rewuest
+     * @param [type] $request
      * @return void
      */
-    public function get_user_progress( $rewuest ){
+    public function get_user_progress( $request ){
         
     }
 
     /**
      * update user progress
      *
-     * @param [type] $rewuest
+     * @param [type] $request
      * @return void
      */
-    public function update_user_progress( $rewuest ){
+    public function update_user_progress( $request ){
         
     }
     
