@@ -73,8 +73,11 @@ class CoursesControllerApi extends WP_REST_Controller {
      *
      * @return void
      */
-    private function check_permission(){
-        return current_user_can( 'manage_options' );
+    public function check_permission(){
+        if ( current_user_can( 'manage_options' ) ){
+            return true;
+        }
+        return false;
     }
 
     /**
