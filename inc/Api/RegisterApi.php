@@ -27,6 +27,9 @@ class RegisterApi{
         // register quizzes api
         add_action( 'rest_api_init', [ $this, 'register_quizz_api'] );
 
+        // register user progress api
+        add_action( 'rest_api_init', [ $this, 'register_user_progress_api'] );
+
 
     }
 
@@ -68,5 +71,15 @@ class RegisterApi{
     public function register_quizz_api(){
         $quizzes = new QuizControllerApi;
         $quizzes->register_routes();
+    }
+
+    /**
+     * register user progress api routes for manage user progress
+     *
+     * @return void
+     */
+    public function register_user_progress_api(){
+        $user_progress = new UserProgressControllerApi;
+        $user_progress->register_routes();
     }
 }
