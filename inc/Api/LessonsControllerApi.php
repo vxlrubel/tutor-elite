@@ -27,6 +27,20 @@ class LessonsControllerApi extends WP_REST_Controller {
      * @return void
      */
     public function register_routes(){
+
+
+        register_rest_route( 
+            $this->namespace,
+            '/' . 'courses' . '/(?P<id>[\d]+)' . '/' . $this->rest_base,
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [ $this, 'get_courses_lessons' ],
+                    'permission_callback' => [ $this, 'check_permission' ]
+                ]
+            ]
+        );
+        
         register_rest_route( 
             $this->namespace,
             '/' . $this->rest_base,
@@ -39,6 +53,29 @@ class LessonsControllerApi extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [ $this, 'get_items' ],
+                    'permission_callback' => [ $this, 'check_permission' ]
+                ]
+            ]
+        );
+
+        // register route for single item
+        register_rest_route( 
+            $this->namespace,
+            '/' . $this->rest_base . '/(?P<id>[\d]+)',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [ $this, 'get_item' ],
+                    'permission_callback' => [ $this, 'check_permission' ]
+                ],
+                [
+                    'methods'             => WP_REST_Server::EDITABLE,
+                    'callback'            => [ $this, 'update_item' ],
+                    'permission_callback' => [ $this, 'check_permission' ]
+                ],
+                [
+                    'methods'             => WP_REST_Server::DELETABLE,
+                    'callback'            => [ $this, 'delete_item' ],
                     'permission_callback' => [ $this, 'check_permission' ]
                 ]
             ]
@@ -59,6 +96,16 @@ class LessonsControllerApi extends WP_REST_Controller {
     }
 
     /**
+     * get lesson by course id
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function get_courses_lessons( $request ){
+        
+    }
+
+    /**
      * insert lesson
      *
      * @return void
@@ -75,6 +122,36 @@ class LessonsControllerApi extends WP_REST_Controller {
      */
     public function get_items( $request ){
 
+    }
+
+    /**
+     * get single lesson item
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function get_item( $request ){
+        
+    }
+
+    /**
+     * update single lesson item
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function update_item( $request ){
+        
+    }
+
+    /**
+     * delete single lesson item
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function delete_item( $request ){
+        
     }
 
 }
