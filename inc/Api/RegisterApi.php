@@ -23,7 +23,7 @@ class RegisterApi{
      * @return void
      */
     public function register_course_api(){
-        $course_api = new CoursesApi;
+        $course_api = new CoursesControllerApi;
         $course_api->register_routes();
     }
 }
