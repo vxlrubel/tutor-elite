@@ -24,6 +24,9 @@ class RegisterApi{
         // register enrolments controller api
         add_action( 'rest_api_init', [ $this, 'register_enrollment_api' ] );
 
+        // register quizzes api
+        add_action( 'rest_api_init', [ $this, 'register_quizz_api'] );
+
 
     }
 
@@ -55,5 +58,15 @@ class RegisterApi{
     public function register_enrollment_api(){
         $enrollment_api = new EnrollmentsControllerApi;
         $enrollment_api->register_routes();
+    }
+
+    /**
+     * register quiz api routes for manage the quizzes
+     *
+     * @return void
+     */
+    public function register_quizz_api(){
+        $quizzes = new QuizControllerApi;
+        $quizzes->register_routes();
     }
 }
